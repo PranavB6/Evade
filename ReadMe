@@ -1,0 +1,89 @@
+The Team:
+	Name: Pranavkumar Bodawala
+	ID: 1500669
+
+	Name: Madeeha Anjum
+	ID: 1514645
+-
+
+HOW TO RUN:
+	0. Wire all the accessories
+	1. Connect the Arduino a computer
+	2. In the terminal, upload the program to the Arduino using "make upload"
+	3. Play the game!
+-
+
+ACCESSORIES:
+	* Arduino Mega Board (AMG)
+	* Joystick
+	* LCD Display
+	* Potentiometer
+	* Push Button
+-
+
+NOTES ABOUT THE CODE:
+	* The common.h header file contains the struct definitions and forward declarations of all the functions
+
+	* Challenging part: Bullet collisions with the "Shooter" and the block in the middle
+											- To do this, first check if the bullet is inside or touching the border of the Block
+											- Then, check if it's last y position.
+											- If it is above or below the block, we know that we simply have to reverse it's y-velocity
+											- otherwise, it means that the bullet has touched the side of the block so we simlpy have to reverse it's x-velocity
+
+  * The only delay in the program is between each iteration of the main game loop.
+   Otherwise, any other delay will delay/pause the entire game - this was hard to work around
+
+  * You can changing many aspects of the game, such as any of the "#defines" under the "/* You Can Edit any of these #defines */" comment
+	  As well as any of these properties before the main game loop:
+		shooter.radius = 30;
+		shooter.aim_radius = 40;
+		shooter.aim_size = 2;
+		block.size_x = 80;
+		block.size_y = 2;
+-
+
+
+WIRING INSTRUCTIONS:
+
+LCD DISPLAY:
+Board Pin <---> Arduino Pin
+===========================
+GND             GND
+Vin             5V
+3Vo             NOT CONNECTED
+CLK             52
+MISO            50
+MOSI            51
+CS              10
+D/C             9
+RST             NOT CONNECTED
+Lite            NOT CONNECTED
+Y+              A2 (analog pin)
+X+              4  (digital pin)
+Y-              5  (digital pin)
+X-              A3 (analog pin)
+IM0 - IM3       NOT CONNECTED (they expect a 3.3v signal, DON'T CONNECT!)
+CCS             6
+CD              NOT CONNECTED
+
+JOYSTICK:
+Board Pin <---> Arduino Pin
+===========================
+GND             GND
+VRx							A1
+VRy							A0
+SEL							2
++5V							5V
+
+Potentiometer:
+Board Pin <---> Arduino Pin
+===========================
+GND             GND
+Middle Pin			A7
+5V							5V
+
+Push Button:
+Board Pin <---> Arduino Pin
+===========================
+GND             GND
+Other Pin				8 (digital pin)
